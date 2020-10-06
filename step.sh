@@ -5,6 +5,15 @@ if [[ "${is_debug}" == "true" ]]; then
   set -x
 fi
 
+brew install openjdk@11
+
+# echo 'export PATH="/usr/local/opt/openjdk@11/bin:$PATH"' >> ~/.zshrc
+export JAVA_HOME=`/usr/libexec/java_home -v 11.0`
+export PATH=$PATH:$JAVA_HOME/bin
+
+source ~/.zshrc
+/usr/libexec/java_home -V
+java -version
 
 if [[ ! -z ${scanner_properties} ]]; then
   if [[ -e sonar-project.properties ]]; then
