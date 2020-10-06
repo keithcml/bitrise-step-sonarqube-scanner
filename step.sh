@@ -14,6 +14,13 @@ export PATH=$JAVA_HOME/bin:$PATH
 java -version
 echo "JAVA_HOME: $JAVA_HOME"
 
+jenv add /usr/local/opt/openjdk/
+jenv global 13
+
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt -y install openjdk-13-jdk
+
 if [[ ! -z ${scanner_properties} ]]; then
   if [[ -e sonar-project.properties ]]; then
     echo -e "\e[34mBoth sonar-project.properties file and step properties are provided. Appending properties to the file.\e[0m"
